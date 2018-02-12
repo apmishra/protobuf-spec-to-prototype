@@ -1,0 +1,52 @@
+syntax = "proto3";
+package Simple;
+
+import "google/api/annotations.proto";
+message SearchParameters {
+    StringMessage sm=1;
+    Classifier p=2;
+}
+/*Default Return*/
+ message StringMessage {
+   string key=1;
+   string value = 2;
+ }
+/*KVPair*/
+ message KVPair {
+   string key=1;
+   string value = 2;
+ }
+/*KVPairs*/
+ message KVPairs {
+     repeated KVPair kv_pairs=1;
+ }
+
+/*Classifier*/
+message Classifier {
+    string id=1;
+    string runtime_url=2;
+    string creator=3;
+    string classifier_type=4;
+    string cluster=5;
+    string name_space=6;
+    KVPairs kv_pairs=7;
+ }
+
+/*Classifier*/
+message Classifiers {
+    repeated Classifier classifiers=1;
+ }
+
+ service Simple {
+  rpc ListClassifier(SearchParameters) returns (Classifiers) {
+    option (google.api.http) = {
+      get: "/v1/simple/listclassifier"
+    };
+  }
+  rpc CreateClassifier(Classifier) returns (Classifiers) {
+    option (google.api.http) = {
+      post: "/v1/simple/createclassifier"
+      body: "*"
+    };
+  }
+ }

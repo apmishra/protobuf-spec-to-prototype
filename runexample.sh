@@ -1,0 +1,1 @@
+./genpythonstubs.sh $PWD Simple
