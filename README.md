@@ -1,17 +1,17 @@
-#Pre-Requisite Installations 
-#1. go is installed
+# Pre-Requisite Installations 
+# 1. go is installed
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 go get -u github.com/golang/protobuf/protoc-gen-go
-#2. protoc is installed
-#3. grpc gateway is installed
-#4.swagger-codegen is installed
+# 2. protoc is installed
+# 3. grpc gateway is installed
+# 4.swagger-codegen is installed
 
 
-##Step2 Create Protobuf FIle for Service called Simple
+## Step2 Create Protobuf FIle for Service called Simple
 
 1.Ensure you have a Simple.proto file created having the protobuf spec for your service
-#Code 
+# Code 
 
         syntax = "proto3";
         package Simple;
@@ -84,5 +84,5 @@ go get -u github.com/golang/protobuf/protoc-gen-go
           }
          }
 
-##Step3 run the example against the Service
+## Step3 run the example against the Service
 ./runexample.sh
