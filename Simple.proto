@@ -45,7 +45,7 @@ message Classifiers {
   }
   rpc CreateClassifier(Classifier) returns (Classifiers) {
     option (google.api.http) = {
-      post: "/v1/simple/createclassifier"
+      post: "/v2/simple/createclassifier"
       body: "*"
     };
   }
