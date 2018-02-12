@@ -1,0 +1,188 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Simple.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/simple/createclassifier": {
+      "post": {
+        "operationId": "CreateClassifier",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SimpleClassifiers"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SimpleClassifier"
+            }
+          }
+        ],
+        "tags": [
+          "Simple"
+        ]
+      }
+    },
+    "/v1/simple/listclassifier": {
+      "get": {
+        "operationId": "ListClassifier",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SimpleClassifiers"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "sm.key",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sm.value",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.runtime_url",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.creator",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.classifier_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.cluster",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.name_space",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Simple"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "SimpleClassifier": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "runtime_url": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "classifier_type": {
+          "type": "string"
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "name_space": {
+          "type": "string"
+        },
+        "kv_pairs": {
+          "$ref": "#/definitions/SimpleKVPairs"
+        }
+      },
+      "title": "Classifier"
+    },
+    "SimpleClassifiers": {
+      "type": "object",
+      "properties": {
+        "classifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SimpleClassifier"
+          }
+        }
+      },
+      "title": "Classifier"
+    },
+    "SimpleKVPair": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "KVPair"
+    },
+    "SimpleKVPairs": {
+      "type": "object",
+      "properties": {
+        "kv_pairs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SimpleKVPair"
+          }
+        }
+      },
+      "title": "KVPairs"
+    },
+    "SimpleStringMessage": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "Default Return"
+    }
+  }
+}

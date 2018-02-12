@@ -1,0 +1,173 @@
+---
+swagger: "2.0"
+info:
+  version: "version not set"
+  title: "Simple.proto"
+schemes:
+- "http"
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /v1/simple/createclassifier:
+    post:
+      tags:
+      - "Simple"
+      operationId: "create_classifier"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/SimpleClassifier"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/SimpleClassifiers"
+      x-swagger-router-controller: "swagger_server.controllers.simple_controller"
+  /v1/simple/listclassifier:
+    get:
+      tags:
+      - "Simple"
+      operationId: "list_classifier"
+      parameters:
+      - name: "sm_key"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "sm_value"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_id"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_runtime_url"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_creator"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_classifier_type"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_cluster"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_name_space"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/SimpleClassifiers"
+      x-swagger-router-controller: "swagger_server.controllers.simple_controller"
+definitions:
+  SimpleClassifier:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      runtime_url:
+        type: "string"
+      creator:
+        type: "string"
+      classifier_type:
+        type: "string"
+      cluster:
+        type: "string"
+      name_space:
+        type: "string"
+      kv_pairs:
+        $ref: "#/definitions/SimpleKVPairs"
+    title: "Classifier"
+    example:
+      classifier_type: "classifier_type"
+      cluster: "cluster"
+      creator: "creator"
+      kv_pairs:
+        kv_pairs:
+        - value: "value"
+          key: "key"
+        - value: "value"
+          key: "key"
+      name_space: "name_space"
+      id: "id"
+      runtime_url: "runtime_url"
+  SimpleClassifiers:
+    type: "object"
+    properties:
+      classifiers:
+        type: "array"
+        items:
+          $ref: "#/definitions/SimpleClassifier"
+    title: "Classifier"
+    example:
+      classifiers:
+      - classifier_type: "classifier_type"
+        cluster: "cluster"
+        creator: "creator"
+        kv_pairs:
+          kv_pairs:
+          - value: "value"
+            key: "key"
+          - value: "value"
+            key: "key"
+        name_space: "name_space"
+        id: "id"
+        runtime_url: "runtime_url"
+      - classifier_type: "classifier_type"
+        cluster: "cluster"
+        creator: "creator"
+        kv_pairs:
+          kv_pairs:
+          - value: "value"
+            key: "key"
+          - value: "value"
+            key: "key"
+        name_space: "name_space"
+        id: "id"
+        runtime_url: "runtime_url"
+  SimpleKVPair:
+    type: "object"
+    properties:
+      key:
+        type: "string"
+      value:
+        type: "string"
+    title: "KVPair"
+    example:
+      value: "value"
+      key: "key"
+  SimpleKVPairs:
+    type: "object"
+    properties:
+      kv_pairs:
+        type: "array"
+        items:
+          $ref: "#/definitions/SimpleKVPair"
+    title: "KVPairs"
+    example:
+      kv_pairs:
+      - value: "value"
+        key: "key"
+      - value: "value"
+        key: "key"
+  SimpleStringMessage:
+    type: "object"
+    properties:
+      key:
+        type: "string"
+      value:
+        type: "string"
+    title: "Default Return"
