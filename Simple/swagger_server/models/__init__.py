@@ -7,4 +7,6 @@ from swagger_server.models.simple_classifier import SimpleClassifier
 from swagger_server.models.simple_classifiers import SimpleClassifiers
 from swagger_server.models.simple_kv_pair import SimpleKVPair
 from swagger_server.models.simple_kv_pairs import SimpleKVPairs
+from swagger_server.models.simple_plugin import SimplePlugin
+from swagger_server.models.simple_plugins import SimplePlugins
 from swagger_server.models.simple_string_message import SimpleStringMessage

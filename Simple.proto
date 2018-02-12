@@ -37,7 +37,25 @@ message Classifiers {
     repeated Classifier classifiers=1;
  }
 
+message Plugin {
+    string id=1;
+    string creator=2;
+    string type=3;
+    string name_space=4;
+    KVPairs kv_pairs=5;
+ }
+message Plugins {
+    repeated Plugin plugins=1;
+}
+
+
  service Simple {
+  rpc ListAll(SearchParameters) returns (Plugins) {
+    option (google.api.http) = {
+      get: "/v1/simple/listplugins"
+    };
+  }
+
   rpc ListClassifier(SearchParameters) returns (Classifiers) {
     option (google.api.http) = {
       get: "/v1/simple/listclassifier"

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='Simple.proto',
   package='Simple',
   syntax='proto3',
-  serialized_pb=_b('\n\x0cSimple.proto\x12\x06Simple\x1a\x1cgoogle/api/annotations.proto\"T\n\x10SearchParameters\x12!\n\x02sm\x18\x01 \x01(\x0b\x32\x15.Simple.StringMessage\x12\x1d\n\x01p\x18\x02 \x01(\x0b\x32\x12.Simple.Classifier\"+\n\rStringMessage\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"$\n\x06KVPair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"+\n\x07KVPairs\x12 \n\x08kv_pairs\x18\x01 \x03(\x0b\x32\x0e.Simple.KVPair\"\x9f\x01\n\nClassifier\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0bruntime_url\x18\x02 \x01(\t\x12\x0f\n\x07\x63reator\x18\x03 \x01(\t\x12\x17\n\x0f\x63lassifier_type\x18\x04 \x01(\t\x12\x0f\n\x07\x63luster\x18\x05 \x01(\t\x12\x12\n\nname_space\x18\x06 \x01(\t\x12!\n\x08kv_pairs\x18\x07 \x01(\x0b\x32\x0f.Simple.KVPairs\"6\n\x0b\x43lassifiers\x12\'\n\x0b\x63lassifiers\x18\x01 \x03(\x0b\x32\x12.Simple.Classifier2\xd1\x01\n\x06Simple\x12\x62\n\x0eListClassifier\x12\x18.Simple.SearchParameters\x1a\x13.Simple.Classifiers\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/simple/listclassifier\x12\x63\n\x10\x43reateClassifier\x12\x12.Simple.Classifier\x1a\x13.Simple.Classifiers\"&\x82\xd3\xe4\x93\x02 \"\x1b/v1/simple/createclassifier:\x01*b\x06proto3')
+  serialized_pb=_b('\n\x0cSimple.proto\x12\x06Simple\x1a\x1cgoogle/api/annotations.proto\"T\n\x10SearchParameters\x12!\n\x02sm\x18\x01 \x01(\x0b\x32\x15.Simple.StringMessage\x12\x1d\n\x01p\x18\x02 \x01(\x0b\x32\x12.Simple.Classifier\"+\n\rStringMessage\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"$\n\x06KVPair\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"+\n\x07KVPairs\x12 \n\x08kv_pairs\x18\x01 \x03(\x0b\x32\x0e.Simple.KVPair\"\x9f\x01\n\nClassifier\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0bruntime_url\x18\x02 \x01(\t\x12\x0f\n\x07\x63reator\x18\x03 \x01(\t\x12\x17\n\x0f\x63lassifier_type\x18\x04 \x01(\t\x12\x0f\n\x07\x63luster\x18\x05 \x01(\t\x12\x12\n\nname_space\x18\x06 \x01(\t\x12!\n\x08kv_pairs\x18\x07 \x01(\x0b\x32\x0f.Simple.KVPairs\"6\n\x0b\x43lassifiers\x12\'\n\x0b\x63lassifiers\x18\x01 \x03(\x0b\x32\x12.Simple.Classifier\"j\n\x06Plugin\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x63reator\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\x12\x12\n\nname_space\x18\x04 \x01(\t\x12!\n\x08kv_pairs\x18\x05 \x01(\x0b\x32\x0f.Simple.KVPairs\"*\n\x07Plugins\x12\x1f\n\x07plugins\x18\x01 \x03(\x0b\x32\x0e.Simple.Plugin2\xa7\x02\n\x06Simple\x12T\n\x07ListAll\x12\x18.Simple.SearchParameters\x1a\x0f.Simple.Plugins\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/simple/listplugins\x12\x62\n\x0eListClassifier\x12\x18.Simple.SearchParameters\x1a\x13.Simple.Classifiers\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/simple/listclassifier\x12\x63\n\x10\x43reateClassifier\x12\x12.Simple.Classifier\x1a\x13.Simple.Classifiers\"&\x82\xd3\xe4\x93\x02 \"\x1b/v2/simple/createclassifier:\x01*b\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -275,17 +275,111 @@ _CLASSIFIERS = _descriptor.Descriptor(
   serialized_end=484,
 )
 
+
+_PLUGIN = _descriptor.Descriptor(
+  name='Plugin',
+  full_name='Simple.Plugin',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='Simple.Plugin.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='creator', full_name='Simple.Plugin.creator', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='Simple.Plugin.type', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name_space', full_name='Simple.Plugin.name_space', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kv_pairs', full_name='Simple.Plugin.kv_pairs', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=486,
+  serialized_end=592,
+)
+
+
+_PLUGINS = _descriptor.Descriptor(
+  name='Plugins',
+  full_name='Simple.Plugins',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='plugins', full_name='Simple.Plugins.plugins', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=594,
+  serialized_end=636,
+)
+
 _SEARCHPARAMETERS.fields_by_name['sm'].message_type = _STRINGMESSAGE
 _SEARCHPARAMETERS.fields_by_name['p'].message_type = _CLASSIFIER
 _KVPAIRS.fields_by_name['kv_pairs'].message_type = _KVPAIR
 _CLASSIFIER.fields_by_name['kv_pairs'].message_type = _KVPAIRS
 _CLASSIFIERS.fields_by_name['classifiers'].message_type = _CLASSIFIER
+_PLUGIN.fields_by_name['kv_pairs'].message_type = _KVPAIRS
+_PLUGINS.fields_by_name['plugins'].message_type = _PLUGIN
 DESCRIPTOR.message_types_by_name['SearchParameters'] = _SEARCHPARAMETERS
 DESCRIPTOR.message_types_by_name['StringMessage'] = _STRINGMESSAGE
 DESCRIPTOR.message_types_by_name['KVPair'] = _KVPAIR
 DESCRIPTOR.message_types_by_name['KVPairs'] = _KVPAIRS
 DESCRIPTOR.message_types_by_name['Classifier'] = _CLASSIFIER
 DESCRIPTOR.message_types_by_name['Classifiers'] = _CLASSIFIERS
+DESCRIPTOR.message_types_by_name['Plugin'] = _PLUGIN
+DESCRIPTOR.message_types_by_name['Plugins'] = _PLUGINS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SearchParameters = _reflection.GeneratedProtocolMessageType('SearchParameters', (_message.Message,), dict(
@@ -330,6 +424,20 @@ Classifiers = _reflection.GeneratedProtocolMessageType('Classifiers', (_message.
   ))
 _sym_db.RegisterMessage(Classifiers)
 
+Plugin = _reflection.GeneratedProtocolMessageType('Plugin', (_message.Message,), dict(
+  DESCRIPTOR = _PLUGIN,
+  __module__ = 'Simple_pb2'
+  # @@protoc_insertion_point(class_scope:Simple.Plugin)
+  ))
+_sym_db.RegisterMessage(Plugin)
+
+Plugins = _reflection.GeneratedProtocolMessageType('Plugins', (_message.Message,), dict(
+  DESCRIPTOR = _PLUGINS,
+  __module__ = 'Simple_pb2'
+  # @@protoc_insertion_point(class_scope:Simple.Plugins)
+  ))
+_sym_db.RegisterMessage(Plugins)
+
 
 
 _SIMPLE = _descriptor.ServiceDescriptor(
@@ -338,13 +446,22 @@ _SIMPLE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=487,
-  serialized_end=696,
+  serialized_start=639,
+  serialized_end=934,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='ListAll',
+    full_name='Simple.Simple.ListAll',
+    index=0,
+    containing_service=None,
+    input_type=_SEARCHPARAMETERS,
+    output_type=_PLUGINS,
+    options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\202\323\344\223\002\030\022\026/v1/simple/listplugins')),
+  ),
   _descriptor.MethodDescriptor(
     name='ListClassifier',
     full_name='Simple.Simple.ListClassifier',
-    index=0,
+    index=1,
     containing_service=None,
     input_type=_SEARCHPARAMETERS,
     output_type=_CLASSIFIERS,
@@ -353,11 +470,11 @@ _SIMPLE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateClassifier',
     full_name='Simple.Simple.CreateClassifier',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_CLASSIFIER,
     output_type=_CLASSIFIERS,
-    options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\202\323\344\223\002 \"\033/v1/simple/createclassifier:\001*')),
+    options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\202\323\344\223\002 \"\033/v2/simple/createclassifier:\001*')),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_SIMPLE)

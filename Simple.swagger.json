@@ -15,32 +15,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/simple/createclassifier": {
-      "post": {
-        "operationId": "CreateClassifier",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/SimpleClassifiers"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SimpleClassifier"
-            }
-          }
-        ],
-        "tags": [
-          "Simple"
-        ]
-      }
-    },
     "/v1/simple/listclassifier": {
       "get": {
         "operationId": "ListClassifier",
@@ -100,6 +74,98 @@
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "Simple"
+        ]
+      }
+    },
+    "/v1/simple/listplugins": {
+      "get": {
+        "operationId": "ListAll",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SimplePlugins"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "sm.key",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sm.value",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.runtime_url",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.creator",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.classifier_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.cluster",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "p.name_space",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Simple"
+        ]
+      }
+    },
+    "/v2/simple/createclassifier": {
+      "post": {
+        "operationId": "CreateClassifier",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SimpleClassifiers"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SimpleClassifier"
+            }
           }
         ],
         "tags": [
@@ -171,6 +237,37 @@
         }
       },
       "title": "KVPairs"
+    },
+    "SimplePlugin": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name_space": {
+          "type": "string"
+        },
+        "kv_pairs": {
+          "$ref": "#/definitions/SimpleKVPairs"
+        }
+      }
+    },
+    "SimplePlugins": {
+      "type": "object",
+      "properties": {
+        "plugins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SimplePlugin"
+          }
+        }
+      }
     },
     "SimpleStringMessage": {
       "type": "object",

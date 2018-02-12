@@ -11,23 +11,6 @@ consumes:
 produces:
 - "application/json"
 paths:
-  /v1/simple/createclassifier:
-    post:
-      tags:
-      - "Simple"
-      operationId: "create_classifier"
-      parameters:
-      - in: "body"
-        name: "body"
-        required: true
-        schema:
-          $ref: "#/definitions/SimpleClassifier"
-      responses:
-        200:
-          description: ""
-          schema:
-            $ref: "#/definitions/SimpleClassifiers"
-      x-swagger-router-controller: "swagger_server.controllers.simple_controller"
   /v1/simple/listclassifier:
     get:
       tags:
@@ -66,6 +49,67 @@ paths:
         in: "query"
         required: false
         type: "string"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/SimpleClassifiers"
+      x-swagger-router-controller: "swagger_server.controllers.simple_controller"
+  /v1/simple/listplugins:
+    get:
+      tags:
+      - "Simple"
+      operationId: "list_all"
+      parameters:
+      - name: "sm_key"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "sm_value"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_id"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_runtime_url"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_creator"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_classifier_type"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_cluster"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "p_name_space"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: ""
+          schema:
+            $ref: "#/definitions/SimplePlugins"
+      x-swagger-router-controller: "swagger_server.controllers.simple_controller"
+  /v2/simple/createclassifier:
+    post:
+      tags:
+      - "Simple"
+      operationId: "create_classifier"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/SimpleClassifier"
       responses:
         200:
           description: ""
@@ -163,6 +207,59 @@ definitions:
         key: "key"
       - value: "value"
         key: "key"
+  SimplePlugin:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      creator:
+        type: "string"
+      type:
+        type: "string"
+      name_space:
+        type: "string"
+      kv_pairs:
+        $ref: "#/definitions/SimpleKVPairs"
+    example:
+      creator: "creator"
+      kv_pairs:
+        kv_pairs:
+        - value: "value"
+          key: "key"
+        - value: "value"
+          key: "key"
+      name_space: "name_space"
+      id: "id"
+      type: "type"
+  SimplePlugins:
+    type: "object"
+    properties:
+      plugins:
+        type: "array"
+        items:
+          $ref: "#/definitions/SimplePlugin"
+    example:
+      plugins:
+      - creator: "creator"
+        kv_pairs:
+          kv_pairs:
+          - value: "value"
+            key: "key"
+          - value: "value"
+            key: "key"
+        name_space: "name_space"
+        id: "id"
+        type: "type"
+      - creator: "creator"
+        kv_pairs:
+          kv_pairs:
+          - value: "value"
+            key: "key"
+          - value: "value"
+            key: "key"
+        name_space: "name_space"
+        id: "id"
+        type: "type"
   SimpleStringMessage:
     type: "object"
     properties:
