@@ -1,1 +1,2 @@
-./genpythonstubs.sh $PWD Simple
+export NAMEOFSPEC=Simple
+./genpythonstubs.sh $PWD NAMEOFSPEC
