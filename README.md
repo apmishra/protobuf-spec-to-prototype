@@ -1,16 +1,26 @@
+# OSX-Only instructions
+        brew install protobuf
 # Pre-Requisite Installations 
-# 1. go is installed
-        go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-        go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
-        go get -u github.com/golang/protobuf/protoc-gen-go
-# 2. protoc is installed
-# 3. grpc gateway is installed
-# 4.swagger-codegen is installed
+    # 1. go is installed as well as the rpc gateway
+            brew install go
+    # 2. protoc is installed
+            PROTOC_ZIP=protoc-3.3.0-osx-x86_64.zip
+            curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
+            sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+            rm -f $PROTOC_ZIP
+
+    # 3. grpc gateway is avaialble in the /usr/local/bin or any accessible directory
+
+            go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+
+    # 4.swagger-codegen is installed
+            go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+            go get -u github.com/golang/protobuf/protoc-gen-go
 
 
-## Step2 Create Protobuf FIle for Service called Simple
+## Step2 Create Sample Protobuf File
 
-1.Ensure you have a Simple.proto file created having the protobuf spec for your service
+    1.Ensure you have a Simple.proto file created having the protobuf spec for your service
 # Code 
 
         syntax = "proto3";
