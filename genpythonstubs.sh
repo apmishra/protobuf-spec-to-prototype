@@ -44,4 +44,7 @@ PKG_CONFIG="pkg-config"
 rm -rf pythonout
 /usr/local/bin/swagger-codegen generate -i $2.swagger.json -l python-flask -o $2
 #(cd $2;/usr/local/bin/python3 -m swagger_server)
-(cd $2;/usr/local/bin/docker build -t simple .;/usr/local/bin/docker run -it -p 9999:8080 Simple)
+echo "######## BUILDING IT NOW##########'
+(cd $2;/usr/local/bin/docker build -t simple .;)
+echo "######## RUNNING IT NOW##########'
+(cd $2;/usr/local/bin/docker run -it -p 9999:8080 Simple)
