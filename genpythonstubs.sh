@@ -47,4 +47,4 @@ rm -rf pythonout
 echo "######## BUILDING IT NOW##########"
 (cd $2;/usr/local/bin/docker build -t simple .;)
 echo "######## RUNNING IT NOW##########"
-(cd $2;/usr/local/bin/docker run -dit -p 9999:8080 Simple)
+(cd $2;/usr/local/bin/docker run -dit -p 9999:8080 simple)
