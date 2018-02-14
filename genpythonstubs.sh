@@ -23,17 +23,17 @@ CGO_FFLAGS="-g -O2"
 CGO_LDFLAGS="-g -O2"
 PKG_CONFIG="pkg-config"
 
-/usr/local/bin/protoc -I$1 \
-  -I$GOPATH1/src \
-  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-  --python_out=plugins=grpc:. \
-  `pwd`/$2.proto
+#/usr/local/bin/protoc -I$1 \
+#  -I$GOPATH1/src \
+#  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+#  --python_out=plugins=grpc:. \
+#  `pwd`/$2.proto
 
-/usr/local/bin/protoc -I$1 \
-  -I$GOPATH1/src \
-  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-  --grpc-gateway_out=logtostderr=true:. \
-  $2.proto
+#/usr/local/bin/protoc -I$1 \
+#  -I$GOPATH1/src \
+#  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+#  --grpc-gateway_out=logtostderr=true:. \
+#  $2.proto
 
 /usr/local/bin/protoc -I$1 \
   -I$GOPATH1/src \
