@@ -43,4 +43,4 @@ PKG_CONFIG="pkg-config"
 
 rm -rf pythonout
 /usr/local/bin/swagger-codegen generate -i $2.swagger.json -l python-flask -o $2
-(cd $2;python3 -m swagger_server)
+(cd $2;/usr/local/bin/python3 -m swagger_server)
