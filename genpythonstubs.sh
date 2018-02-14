@@ -7,6 +7,7 @@ GOHOSTARCH="amd64"
 GOHOSTOS="darwin"
 GOOS="darwin"
 GOPATH="$HOME/go"
+GOPATH1="./go"
 GORACE=""
 GOROOT="/usr/local/go"
 GOTOOLDIR="/usr/local/go/pkg/tool/darwin_amd64"
@@ -23,23 +24,23 @@ CGO_LDFLAGS="-g -O2"
 PKG_CONFIG="pkg-config"
 
 /usr/local/bin/protoc -I$1 \
-  -I$GOPATH/src \
-  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  -I$GOPATH1/src \
+  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
   --python_out=plugins=grpc:. \
   `pwd`/$2.proto
 
 /usr/local/bin/protoc -I$1 \
-  -I$GOPATH/src \
-  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  -I$GOPATH1/src \
+  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
   --grpc-gateway_out=logtostderr=true:. \
   $2.proto
 
 /usr/local/bin/protoc -I$1 \
-  -I$GOPATH/src \
-  -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+  -I$GOPATH1/src \
+  -I$GOPATH1/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
   --swagger_out=logtostderr=true:. \
   $2.proto
 
 rm -rf pythonout
-swagger-codegen generate -i $2.swagger.json -l python-flask -o $2
+/usr/local/bin/swagger-codegen generate -i $2.swagger.json -l python-flask -o $2
 (cd $2;python3 -m swagger_server)
